@@ -1,0 +1,91 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0;
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+#student-id, #status-message {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+input, textarea, button {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: inherit;
+}
+button {
+    background: #2a2a2a;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #404040;
+}
+.task-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.task-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.task-description {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.task-status {
+    font-size: 0.85rem;
+    color: #888;
+}
+.task-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+.task-actions button {
+    flex: 1;
+    font-size: 0.85rem;
+}
+#contribution-link {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #8bb4f7;
+    text-decoration: none;
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Contribution</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container glass-panel">
+    <h1>Team Contribution</h1>
+    <p>Contributor Student ID: <span id="contributor-student-id">Not loaded yet.</span></p>
+    <p id="status-message" role="status" aria-live="polite"></p>
+    <button id="load-contributor" type="button">Show Contributor</button>
+    <p><a id="task-manager-link" href="index.html">Back to Task Manager</a></p>
+  </main>
+
+  <script>
+    const loadButton = document.getElementById("load-contributor");
+    const contributorId = document.getElementById("contributor-student-id");
+    const statusMessage = document.getElementById("status-message");
+
+    loadButton.addEventListener("click", async () => {
+      loadButton.disabled = true;
+      statusMessage.textContent = "Loading contributor information...";
+
+      try {
+        const response = await fetch("contribution.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}.`);
+        }
+
+        const data = await response.json();
+        if (data.contributorStudentId === undefined || data.contributorStudentId === null) {
+          throw new Error("The contributor student ID is missing.");
+        }
+
+        contributorId.textContent = String(data.contributorStudentId);
+        statusMessage.textContent = "";
+      } catch (error) {
+        statusMessage.textContent = `Could not load contributor information: ${error.message}`;
+      } finally {
+        loadButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
